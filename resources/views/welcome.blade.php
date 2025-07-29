@@ -6,6 +6,9 @@
 <div class="hero bg-blue-200 min-h-screen">
   <div class="hero-content flex-col lg:flex-row-reverse">
     <div class="text-center lg:text-left">
+      <div class="flex justify-center">
+        <img width="150" src="imagenes/LOGO.png"/>
+      </div>
       <h1 class="text-center text-5xl font-bold">Bienvenido a JDTV!</h1>
       <p class="py-6">
         Gracias por preferir nuestro sistema.
@@ -15,6 +18,10 @@
       <form method="POST" action="{{ route('login') }}" class="card-body">
         @csrf
 
+        <!--Titulo -->
+        <div>
+          <h2 class="text-center text-3xl font-bold">Ingresar</h2>
+        </div>
         <!-- Email Address -->
         <div class="form-control">
           <label class="label">
@@ -46,19 +53,6 @@
             required 
             placeholder="Contraseña"
           />
-          <x-input-error :messages="$errors->get('password')" class="mt-2" />
-          <label class="label">
-            <a href="{{ route('password.request') }}" class="label-text-alt link link-hover">¿Olvidaste la contraseña?</a>
-          </label>
-        </div>
-
-        <!-- Remember Me -->
-        <div class="form-control mt-4 flex items-center">
-          <label for="remember_me" class="inline-flex items-center">
-            <input id="remember_me" type="checkbox" name="remember" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" />
-            <span class="ms-2 text-sm text-gray-600">Recordarme</span>
-          </label>
-        </div>
 
         <!-- Submit Button -->
         <div class="form-control mt-6">

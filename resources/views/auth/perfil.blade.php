@@ -1,8 +1,9 @@
 @extends('layauts.navbar')
 @section('titulo', 'Mi perfil')
+@section('cabecera', 'Mi perfil')
 
 @section('contenido')
-    <div class="flex flex-col items-center">
+    <div class="flex flex-col items-center my-20">
         {{-- Información del perfil de usuario --}}
         <div class="card w-1/2  shadow-2xl bg-base-100 mt-6">
             <div class="card-body">
@@ -15,7 +16,7 @@
                         @endforeach
                     @endif
                 </div>
-                <form action="{{route('profile.update', $user)}}" method="POST">
+                <form action="{{route('perfil.update', $user)}}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="form-control">
@@ -26,9 +27,9 @@
                     </div>
                     <div class="form-control">
                         <label class="label" for="email">
-                            <span class="label-text">Correo</span>
+                            <span class="label-text">Email</span>
                         </label>
-                        <input type="email" name="email" placeholder="Correo" class="input input-bordered" maxlength="255" value="{{$user->email}}" />
+                        <input type="email" name="email" placeholder="Email" class="input input-bordered" maxlength="255" value="{{$user->email}}" />
                     </div>
                     <div class="form-control mt-6 w-1/2">
                         <button class="btn btn-sm btn-neutral normal-case">Actualizar perfil</button>

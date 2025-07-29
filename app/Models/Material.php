@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Empresa extends Model
+class Material extends Model
 {
     use HasFactory;
-    protected $fillable=['nombre','sede','descripcion'];
+    protected $fillable=['nombre','cantidad','precio','servicio_id'];
 
     public function servicios()
     {
-        return $this->hasMany(Servicio::class); //una empresa tiene muchos servicios
+        return $this->belongsTo(Servicio::class); //un material pertenece a un servicio 
     }
 }

@@ -94,18 +94,6 @@
             required 
             placeholder="Contraseña"
           />
-          <x-input-error :messages="$errors->get('password')" class="mt-2" />
-          <label class="label">
-            <a href="{{ route('password.request') }}" class="label-text-alt link link-hover">¿Olvidaste la contraseña?</a>
-          </label>
-        </div>
-
-        <!-- Remember Me -->
-        <div class="form-control mt-4 flex items-center">
-          <label for="remember_me" class="inline-flex items-center">
-            <input id="remember_me" type="checkbox" name="remember" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" />
-            <span class="ms-2 text-sm text-gray-600">Recordarme</span>
-          </label>
         </div>
 
         <!-- Submit Button -->

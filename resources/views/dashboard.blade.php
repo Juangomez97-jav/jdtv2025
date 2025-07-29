@@ -4,12 +4,13 @@
 @section('titulo','Página Principal')
 
 @section('contenido')
+
 <div class="flex justify-center min-h-screen">
     <div class="hero bg-base-200 min-h-screen">
         <div class="hero-content flex-col-2 lg:flex-row-reverse">
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-            class="max-w-sm rounded-lg shadow-2xl" />
+          <div class="flex justify-center">
+            <img width="450" src="imagenes/LOGO.png"/>
+          </div>
           <div>
             <div>
                 <h5 class="text-center text-3xl font-bold text-success mt-6 my-6">Hola, {{ auth()->user()->name }}</h5>

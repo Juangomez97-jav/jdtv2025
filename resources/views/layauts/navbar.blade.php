@@ -9,7 +9,7 @@
 </head>
 <body>
 <main>    
-<div class="navbar  bg-red-200">
+<div class="navbar  bg-red-200 fixed top-0 left-0 w-full z-10">
     <div class="navbar-start">
       <p class="text-xl font-bold">JDTV</p>
     </div>
@@ -20,22 +20,34 @@
           <details>
             <summary>Clientes</summary>
             <ul class="p-2">
-              <li><a href="{{route('empresas.index')}}">Usuarios tv</a></li>
-              <li><a>Submenu 2</a></li>
+              <li><a href="{{route('empresas.index')}}">Empresas</a></li>
+              <li><a href="{{route('servicios.index')}}">Servicios de tv</a></li>
+              <li><a href="{{route('materials.index')}}">Materiales</a></li>
+              <li><a href="{{route('clientes.index')}}">Clientes</a></li>
             </ul>
           </details>
         </li>
+        <li>
+          <details>
+            <summary>Pagos</summary>
+              <ul class="p-2">
+                <li><a href="{{route('pagos.index')}}">Recaudo</a></li>
+              </ul>
+          </details>
+        </li>
+        <li><a href="{{route('perfil')}}">Mi perfil</a></li>
       </ul>
     </div>
     
     {{-- Si esta autenticado muestra boton Nuevo usuario, sino muestra solo el mensaje de bienvenida  --}}
     @auth
-    @if(auth()->user()->role == 'administrador')
+    @if(auth()->user()->rol == 'admin')
       <h3 class="mr-2 font-semibold text-sm">Hola, {{ auth()->user()->name }}</h3>
       <!-- Mostrar el botón de "Nuevo usuario" solo si el usuario es administrador -->
-      <div class="mx-4 space-x-4">
-        <a href="{{ route('register') }}" class="btn btn-outline btn-sm">Nuevo usuario</a>
-      </div>
+      <form method="POST" action="{{ route('registro') }}">
+         @csrf
+         <a href="{{ route('registro') }}" class="btn btn-outline btn-sm">Nuevo usuario</a>
+      </form>
     @else
       <h3 class="mr-2 font-semibold text-sm">Hola, {{ auth()->user()->name }}</h3>
     @endif
